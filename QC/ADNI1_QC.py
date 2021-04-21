@@ -47,11 +47,14 @@ def open_image(cerebro,subjectID,scanID):
     imagepath = toADNI+"ADNI1_Structural_Processing/ADNI1_data/{sub}/{scan}/".format(sub=subjectID,scan=scanID)+suffix
     mask = toADNI+"misc/rmask_ICV.nii"
     exists = os.path.exists("{base}/{imgPath}".format(base=cerebro,imgPath=imagepath))
-    print(exists)
+    print(exists) if DEBUG else None
     command = "itksnap -g {base}/{imgPath} -s {base}/{maskPath} &".format(base=cerebro,imgPath=imagepath,maskPath=mask)
     if exists:
         pid = os.system(command)
-    return  exists
+    else:
+        with open("missing_processing.txt", "a") as f:
+            f.write("{base}/{imgPath}".format(base=cerebro,imgPath=imagepath))
+    return exists
 
 def main():
     name = 'test'
@@ -99,4 +102,3 @@ def main():
                 
 if __name__ =='__main__':
     main()
-    
