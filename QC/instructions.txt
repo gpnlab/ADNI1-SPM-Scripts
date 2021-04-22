@@ -1,0 +1,16 @@
+Run Instructions:
+1. install python 3 from https://www.python.org/downloads/mac-osx/
+2. Place everything in this folder and navigate to it using the command line
+3. Find your Cerebro path
+4. run "python ADNI1_QC.py"
+4b. if stuff doesn't work let me know
+5. Itk-snap should open and you should see the segmentation overlayed
+6. enter "1" for a pass of "0" for a fail in the command line  
+7. QC subjects
+8. exit by typing "exit" in the command line
+
+misc:
+a. the " " surrounding stuff does not need to be included in the command line they are there to highlight what needs to be typed and the other words.
+b. You will be asked to enter your name either "Abhijay" or "Harrison" since that is how the program knows which file to open
+c. DO NOT EXIT WITH CTRL+C this will not save your progress when you do QCs
+d. The program will generate some extra files. Don't delete these
